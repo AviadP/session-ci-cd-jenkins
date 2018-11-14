@@ -8,11 +8,6 @@ parallel(
                     checkout scm
                 }
 
-                stage('Test'){
-                    sh 'ruby app/tc_ruby_app.rb'
-                    sh 'ls -ltrh test/reports/'
-                }
-
                 stage('Teardown'){
                     sh 'docker-compose stop && docker-compose rm -f || true'
                     sh 'sudo docker rm -f opsschool_dummy_app || true'
