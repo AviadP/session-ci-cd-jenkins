@@ -8,15 +8,15 @@ parallel(
                     checkout scm
                 }
 
+                stage('Create local docker repo'){
+                    sh 'docker run -d -p 5000:5000 --restart=always --name registry registry:2'
+                }
+
                 stage('Teardown'){
                     sh 'docker-compose stop && docker-compose rm -f || true'
                     sh 'sudo docker rm -f opsschool_dummy_app || true'
                     sh 'sudo docker rm -f buildclassdummyproject_nginx_1 || true'
 
-                }
-
-                stage('Create local docker repo'){
-                    sh 'docker run -d -p 5000:5000 --restart=always --name registry registry:2'
                 }
 
                 stage('Build'){
