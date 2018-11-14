@@ -1,8 +1,8 @@
-FROM ruby:2.3.3-alpine
+FROM python:3.6.2-alpine
 
 RUN mkdir /myapp
 WORKDIR /myapp
-COPY ./app/ /myapp
-RUN bundle install
+COPY ./python_app/ /myapp
+RUN pip install -r requirements.txt
 
-CMD ["ruby", "server.rb"]
+CMD ["python", "server.py"]
