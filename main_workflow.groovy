@@ -25,7 +25,9 @@ parallel(
                     sh 'sudo docker-compose up -d'
                 }
 
-                junit 'test/reports/*.xml'
+                stage('Final Test'){
+                    sh 'curl localhost/health'
+                }
 
             }
 
