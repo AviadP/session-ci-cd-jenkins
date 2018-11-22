@@ -17,7 +17,7 @@ if __name__ == '__main__':
     logger = logging.getLogger("ops-school-lesson-server")
     logger.setLevel(logging.INFO)
     ch = logging.StreamHandler(sys.stdout)
-    formatter = logging.Formatter(
+    formatter = loggng.Formatter(
         '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     ch.setFormatter(formatter)
     logger.addHandler(ch)
