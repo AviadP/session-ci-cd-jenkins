@@ -15,13 +15,11 @@ parallel(
                 stage('Teardown'){
                     sh 'docker-compose stop && docker-compose rm -f || true'
                     sh 'sudo docker rm -f opsschool_dummy_app || true'
-                    //sh 'sudo docker rm -f buildclassdummyproject_nginx_1 || true'
 
                 }
 
                 stage('Build'){
                     sh 'sudo docker build --no-cache -t localhost:5000/opsschool_dummy_app:latest .'
-                    sh ''
                     sh 'sudo docker push localhost:5000/opsschool_dummy_app:latest'
                 }
 
