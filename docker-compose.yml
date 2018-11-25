@@ -4,7 +4,7 @@ services:
   opsschool_dummy_app:
     image: localhost:5000/opsschool_dummy_app:latest
     ports:
-      - "5005:5005"
+      - "8000:8000"
     networks:
       - opsschool-dummy
 
