@@ -5,23 +5,23 @@ services:
     image: localhost:5000/opsschool_dummy_app:latest
     ports:
       - "8000:8000"
-    networks:
-      - opsschool-dummy
+#    networks:
+#      - opsschool-dummy
 
     restart: always
     container_name: opsschool_dummy_app
 
-  nginx:
-    image: nginx:alpine
-    ports:
-      - "8080:80"
-    volumes:
-      - "./nginx/nginx.conf:/etc/nginx/nginx.conf"
-      - "./nginx/conf.d:/etc/nginx/conf.d"
-    networks:
-      - opsschool-dummy
-    depends_on:
-      - opsschool_dummy_app
-
-networks:
-  opsschool-dummy:
+#  nginx:
+#    image: nginx:alpine
+#    ports:
+#      - "8080:80"
+#    volumes:
+#      - "./nginx/nginx.conf:/etc/nginx/nginx.conf"
+#      - "./nginx/conf.d:/etc/nginx/conf.d"
+#    networks:
+#      - opsschool-dummy
+#    depends_on:
+#      - opsschool_dummy_app
+#
+#networks:
+#  opsschool-dummy:
