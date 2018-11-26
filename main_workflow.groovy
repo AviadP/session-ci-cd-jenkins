@@ -44,7 +44,7 @@ parallel(
                     sh 'curl localhost:8000/health'
                 }
 
-                junit 'test/python_app/*.xml'
+                junit 'results.xml'
 
             }
 
