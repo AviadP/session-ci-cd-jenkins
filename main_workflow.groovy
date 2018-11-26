@@ -17,8 +17,9 @@ parallel(
                         pip install -r python_app/requirements.txt
                         python -m virtualenv --system-site-packages NEW_ENV
                         source NEW_ENV/bin/activate
-                        pip install -r python_app/requirements.txt
-                        python -m pytest --junitxml results.xml python_app/tests/test_server.py
+                        cd python_app
+                        pip install -r requirements.txt
+                        python -m pytest --junitxml results.xml tests/test_server.py
                         deactivate
                     '''
                 }
