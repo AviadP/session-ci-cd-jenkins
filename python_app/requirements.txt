@@ -2,3 +2,4 @@ tornado==5.1.1
 mock
 coverage
 pytest
+virtualenv
