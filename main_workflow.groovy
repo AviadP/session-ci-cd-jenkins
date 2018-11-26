@@ -15,7 +15,7 @@ parallel(
                 stage('Unit Tests'){
                     sh 'pip install -r python_app/requirements.txt'
                     sh 'python -m virtualenv --system-site-packages NEW_ENV'
-                    sh 'source NEW_ENV/bin/activate'
+                    sh '. ./NEW_ENV/bin/activate'
                     sh 'pip install -r python_app/requirements.txt'
                     sh 'python -m pytest --junitxml results.xml python_app/tests/test_server.py'
                     sh 'source NEW_ENV/bin/deactivate'
