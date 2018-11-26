@@ -1,5 +1,5 @@
 import unittest
-import server
+from python_app import server
 from tornado.testing import AsyncHTTPTestCase
 
 

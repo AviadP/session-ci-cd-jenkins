@@ -12,6 +12,12 @@ parallel(
                     sh 'sudo docker run -d -p 5000:5000 --restart=always --name registry registry:2 || true'
                 }
 
+                stage('Unit Tests'){
+                    sh 'pip install -r python_app/requirements.txt'
+                    sh 'py.test --junitxml results.xml python_app/tests/test_server.py'
+
+                }
+
                 stage('Teardown'){
                     sh 'docker-compose stop && docker-compose rm -f || true'
                     sh 'sudo docker rm -f opsschool_dummy_app || true'
@@ -31,6 +37,8 @@ parallel(
                 stage('Final Test'){
                     sh 'curl localhost:8000/health'
                 }
+
+                junit 'test/python_app/*.xml'
 
             }
 

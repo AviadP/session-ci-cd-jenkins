@@ -3,7 +3,7 @@ import logging
 import tornado.ioloop
 import tornado.web
 
-from handlers import health
+from python_app.handlers import health
 
 
 def create_server():
