@@ -13,6 +13,7 @@ parallel(
                 }
 
                 stage('Unit Tests'){
+                    sh 'pip install -r python_app/requirements.txt'
                     sh 'virtualenv --system-site-packages NEW_ENV'
                     sh 'source NEW_ENV/bin/activate'
                     sh 'pip install -r python_app/requirements.txt'
