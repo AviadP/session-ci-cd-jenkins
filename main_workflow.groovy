@@ -13,7 +13,8 @@ parallel(
                 }
 
                 stage('Unit Tests'){
-                    bash '''#!/bin/bash
+                    steps{
+                        bash '''#!/bin/bash
                             pip install -r python_app/requirements.txt
                             python -m virtualenv --system-site-packages NEW_ENV
                             source NEW_ENV/bin/activate
@@ -21,7 +22,7 @@ parallel(
                             python -m pytest --junitxml results.xml python_app/tests/test_server.py
                             deactivate
                      '''
-
+                    }
                 }
 
                 stage('Teardown'){
