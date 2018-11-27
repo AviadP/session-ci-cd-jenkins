@@ -40,6 +40,12 @@ parallel(
                     sh 'sudo docker-compose up -d || true'
                 }
 
+                stage('Final Test'){
+                    sh '''#!/bin/bash
+                        curl localhost:8000/health
+                    '''
+                }
+
                 junit 'python_app/results.xml'
 
             }
