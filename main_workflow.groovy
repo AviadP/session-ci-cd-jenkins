@@ -49,5 +49,3 @@ node ('ops-school-dynamic-slave'){
     junit 'python_app/results.xml'
 
 }
-
-}
