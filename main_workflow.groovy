@@ -5,7 +5,9 @@ parallel(
 
                 stage('Checkout'){
 
-                    checkout scm
+                    dir('Combination') {
+                        git url: 'https://github.com/ops-school/session-ci-cd-jenkins.git'
+                    }
                 }
 
                 stage('Create local docker repo'){
